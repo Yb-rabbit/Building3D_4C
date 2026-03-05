@@ -22,14 +22,19 @@ public class DialogueSystem : MonoBehaviour
     public int startNodeId = 1;
 
     [Header("显示设置")]
-    private List<string> dialogueHistory = new List<string>();
+    [Tooltip("玩家选项的颜色")]
+    public Color playerColor = Color.yellow;
+    [Tooltip("系统/剧情文本的颜色")]
+    public Color systemColor = Color.white;
+
+    // --- 内部变量 ---
+    private List<string> dialogueHistory = new List<string>(); // 修复：声明dialogueHistory
     private const int MaxHistoryCount = 2;
-    
-    private int currentMaxNodeId = 0;
-    private int currentActiveNodeId = 1;
-    
+    private int currentMaxNodeId = 0; // 修复：声明currentMaxNodeId
+    private int currentActiveNodeId = 1; // 修复：声明currentActiveNodeId
     private Coroutine typingCoroutine;
     private bool isTyping = false;
+    private bool skipTyping = false; // 点击加速标记
 
     public UnityEvent onDialogueCompleted;
 
@@ -40,11 +45,25 @@ public class DialogueSystem : MonoBehaviour
             CalculateMaxNodeId();
             StartDialogue(startNodeId);
         }
+
+        if (clearButton != null)
+        {
+            clearButton.onClick.AddListener(ClearHistory);
+        }
+    }
+
+    void Update()
+    {
+        // 检测鼠标左键点击，跳过打字机效果
+        if (isTyping && Input.GetMouseButtonDown(0))
+        {
+            skipTyping = true;
+        }
     }
 
     void CalculateMaxNodeId()
     {
-        currentMaxNodeId = 1;
+        currentMaxNodeId = 1; // 使用已声明的变量
         if (currentData != null && currentData.dialogueList != null)
         {
             foreach (var node in currentData.dialogueList)
@@ -70,12 +89,9 @@ public class DialogueSystem : MonoBehaviour
         DialogueNode node = currentData.GetNodeById(nodeId);
         if (node == null) return;
 
-        currentActiveNodeId = nodeId;
-
-        // 1. 更新进度条
+        currentActiveNodeId = nodeId; // 使用已声明的变量
         UpdateProgressBar(nodeId);
 
-        // 2. 检查是否到达末端
         bool isEnd = (node.choices == null || node.choices.Count == 0);
         if (isEnd)
         {
@@ -87,57 +103,98 @@ public class DialogueSystem : MonoBehaviour
             if (endButton != null) endButton.SetActive(false);
         }
 
-        // 3. 文本显示逻辑（只显示旧历史，最新的打字机输出）
-        string currentLine = "";
+        // 1. 生成纯文本（不带标签）
+        string pureText = "";
         if (!string.IsNullOrEmpty(playerChoice))
         {
-            currentLine += "> " + playerChoice + "\n";
+            pureText += $"> {playerChoice}\n"; // 玩家选项（纯文本）
         }
-        currentLine += ">> " + node.terminalText;
-        
-        dialogueHistory.Add(currentLine);
-        
-        while (dialogueHistory.Count > MaxHistoryCount)
-        {
-            dialogueHistory.RemoveAt(0);
-        }
+        pureText += $">> {node.terminalText}"; // 系统文本（纯文本）
 
+        // 2. 清除旧内容（只显示最新一行）
         terminalText.text = "";
-        
-        // 显示旧历史
-        for (int i = 0; i < dialogueHistory.Count - 1; i++)
-        {
-            terminalText.text += dialogueHistory[i] + "\n";
-        }
-        
-        // 最新的使用打字机输出
-        typingCoroutine = StartCoroutine(AppendText(currentLine));
+        dialogueHistory.Clear(); // 使用已声明的变量
 
-        // 4. 生成选项
+        // 3. 启动打字机显示纯文本
+        typingCoroutine = StartCoroutine(AppendText(pureText));
+
+        // 4. 打字机结束后，添加颜色标签
+        StartCoroutine(AddColorTagsAfterTyping(pureText));
+
         CreateChoices(node.choices);
+    }
+
+    // 【核心修改1】纯文本打字机（不带标签）
+    IEnumerator AppendText(string pureText)
+    {
+        isTyping = true;
+        skipTyping = false;
+        int i = 0;
+
+        while (i < pureText.Length)
+        {
+            if (skipTyping)
+            {
+                terminalText.text += pureText.Substring(i);
+                break;
+            }
+
+            terminalText.text += pureText[i];
+            i++;
+            yield return new WaitForSeconds(0.03f); // 打字速度可调整
+        }
+
+        isTyping = false;
+    }
+
+    // 【核心修改2】打字机结束后，添加颜色标签
+    IEnumerator AddColorTagsAfterTyping(string pureText)
+    {
+        // 等待打字机结束
+        while (isTyping)
+        {
+            yield return null;
+        }
+
+        // 生成带标签的文本
+        string coloredText = "";
+        if (pureText.Contains("\n"))
+        {
+            string[] lines = pureText.Split('\n');
+            if (lines.Length > 0)
+            {
+                // 玩家选项（第一行）
+                if (!string.IsNullOrEmpty(lines[0]))
+                {
+                    coloredText += $"<color=#{ColorUtility.ToHtmlStringRGBA(playerColor)}>{lines[0]}</color>\n";
+                }
+                // 系统文本（第二行）
+                if (lines.Length > 1 && !string.IsNullOrEmpty(lines[1]))
+                {
+                    coloredText += $"<color=#{ColorUtility.ToHtmlStringRGBA(systemColor)}>{lines[1]}</color>";
+                }
+            }
+        }
+        else
+        {
+            // 如果没有换行，直接添加系统文本标签
+            coloredText = $"<color=#{ColorUtility.ToHtmlStringRGBA(systemColor)}>{pureText}</color>";
+        }
+
+        // 更新终端文本为带标签的文本（瞬间生效）
+        terminalText.text = coloredText;
+
+        UpdateContentHeight();
     }
 
     void UpdateProgressBar(int currentNodeId)
     {
-        if (progressBar != null && currentMaxNodeId > 0)
+        if (progressBar != null && currentMaxNodeId > 0) // 使用已声明的变量
         {
             float progress = (float)currentNodeId / (float)currentMaxNodeId;
             progress = Mathf.Clamp01(progress);
             progressBar.size = progress;
         }
-    }
-
-    IEnumerator AppendText(string text)
-    {
-        isTyping = true;
-        foreach (char c in text)
-        {
-            terminalText.text += c;
-            yield return new WaitForSeconds(0.05f);
-        }
-        
-        UpdateContentHeight();
-        isTyping = false;
     }
 
     void UpdateContentHeight()
@@ -181,7 +238,7 @@ public class DialogueSystem : MonoBehaviour
         isTyping = false;
 
         terminalText.text = "";
-        dialogueHistory.Clear();
+        dialogueHistory.Clear(); // 使用已声明的变量
 
         if (scrollRect != null)
         {
@@ -189,6 +246,6 @@ public class DialogueSystem : MonoBehaviour
             contentRect.sizeDelta = new Vector2(contentRect.sizeDelta.x, 0);
         }
 
-        StartDialogue(currentActiveNodeId, "");
+        StartDialogue(currentActiveNodeId, ""); // 使用已声明的变量
     }
 }

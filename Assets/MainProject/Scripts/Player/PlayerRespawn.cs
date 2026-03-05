@@ -66,19 +66,6 @@ public class PlayerRespawn : MonoBehaviour
         {
             controller.enabled = true;
         }
-        
-        // 可选：如果你有移动脚本里的速度变量，最好在这里也重置一下
-        // 例如：GetComponent<PlayerMovement>().moveVelocity = Vector3.zero;
-
         //Debug.Log("玩家已重生！");
-    }
-
-    // 如果你有死亡区域触发器，可以使用这个方法
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("DeathZone"))
-        {
-            RespawnPlayer();
-        }
     }
 }
