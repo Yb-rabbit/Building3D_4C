@@ -27,4 +27,9 @@ MonoBehaviour:
       nextNodeId: 3
   - nodeId: 3
     terminalText: "\u6211\u662F\u6D4B\u8BD5\uFF08\u7ED3\u675F\uFF09"
+    choices:
+    - optionText: 4
+      nextNodeId: 4
+  - nodeId: 4
+    terminalText: "\u4EFB\u52A1A\uFF1AXXXX"
     choices: []
