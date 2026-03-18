@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Click
+  - Target
   layers:
   - Default
   - TransparentFX
