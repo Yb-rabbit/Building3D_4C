@@ -3020,6 +3020,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_Male_Labourer
       objectReference: {fileID: 0}
+    - target: {fileID: 386838319475554025, guid: dab5611a748ad174a85756ee868c2b19, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1014862196584819795, guid: dab5611a748ad174a85756ee868c2b19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
