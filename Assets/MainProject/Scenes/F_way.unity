@@ -872,7 +872,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 82bfb29749ed18345a9710bdb27cfaf3, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.57
+  m_Volume: 0.396
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1237,6 +1237,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 159311771861681633, guid: accfe37f569bfec4db56706b96627fab, type: 3}
+      propertyPath: defaultVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1033805040509284842, guid: accfe37f569bfec4db56706b96627fab, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1699,6 +1703,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tip1Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7015779914192398025, guid: dc535b5bc6c5f7641bb5b0d20793e5eb, type: 3}
+      propertyPath: pausePanel
+      value: 
+      objectReference: {fileID: 1310342345}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
