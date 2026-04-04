@@ -1070,8 +1070,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeSceneButton: {fileID: 1290327260}
-  targetScene: {fileID: 102900000, guid: a51397a4f0ddc964093c6cdbdb2fb7eb, type: 3}
-  targetSceneName: FuShouSystem
+  targetScene: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
+  targetSceneName: SampleScene
 --- !u!1 &1347461704
 GameObject:
   m_ObjectHideFlags: 0
