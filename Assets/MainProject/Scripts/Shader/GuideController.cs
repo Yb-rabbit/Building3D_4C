@@ -8,7 +8,7 @@ public class GuideController : MonoBehaviour
     public LineRenderer lineRenderer; // 用于画线的组件
 
     private NavMeshAgent agent;
-    private float totalDistance = 0f;
+    //private float totalDistance = 0f;
 
     void Start()
     {
