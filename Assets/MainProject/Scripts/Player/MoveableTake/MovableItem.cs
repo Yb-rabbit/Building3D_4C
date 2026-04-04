@@ -22,7 +22,7 @@ public class MovableItem : MonoBehaviour
             checkObject = GameObject.FindGameObjectWithTag("Player")?.transform;
             if (checkObject == null)
             {
-                Debug.LogError("未找到带'Player' Tag的物体，请手动指定checkObject！");
+                //Debug.LogError("未找到带'Player' Tag的物体，请手动指定checkObject！");
             }
         }
     }
@@ -36,7 +36,7 @@ public class MovableItem : MonoBehaviour
         {
             isCarrying = true;
             gameObject.SetActive(false); // 隐藏石头
-            Debug.Log($"{gameObject.name} 已拿起（隐藏）");
+            //Debug.Log($"{gameObject.name} 已拿起（隐藏）");
         }
     }
 
@@ -55,11 +55,11 @@ public class MovableItem : MonoBehaviour
                 gameObject.SetActive(true); // 显示石头
                 transform.position = targetContainer.placementPosition; // 放到容器位置
                 targetContainer.AddItem(this); // 通知容器
-                Debug.Log($"{gameObject.name} 已放下到 {targetContainer.gameObject.name}");
+                //Debug.Log($"{gameObject.name} 已放下到 {targetContainer.gameObject.name}");
             }
             else
             {
-                Debug.Log($"{checkObject.name} 与容器的距离 {distance:F2} 超过阈值 {distanceThreshold:F2}，无法放下");
+                //Debug.Log($"{checkObject.name} 与容器的距离 {distance:F2} 超过阈值 {distanceThreshold:F2}，无法放下");
             }
         }
     }
