@@ -4466,7 +4466,7 @@ MonoBehaviour:
   shadowMode: 1
   renderLayer:
     m_LayerIndex: 0
-  pointCount: 1
+  pointCount: 1.6
   multiplyByArea: 1
   pointLODFactor: 1
   randomiseSeed: 1
@@ -7683,7 +7683,7 @@ MonoBehaviour:
   windScale: 0.5
   noiseRange: {x: 1, y: 0}
   windDirection: {x: 1, y: 0, z: 0}
-  windScroll: {x: 0.97, y: 0, z: 0}
+  windScroll: {x: 1, y: 0, z: 1}
 --- !u!4 &557914952
 Transform:
   m_ObjectHideFlags: 0
