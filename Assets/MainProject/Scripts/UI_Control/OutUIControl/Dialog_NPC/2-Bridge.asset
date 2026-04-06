@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueList:
   - nodeId: 1
-    terminalText: "\u516C\u5143"
+    terminalText: "\u63D0\u8981\n\u201C\u7AE0\u3001\u8D21\u4E8C\u6C5F\u5728\u6B64\u4EA4\u6C47\uFF0C\u6C47\u6210\u8D63\u6C5F\u3002\u201D\n"
     choices:
-    - optionText: "\u7EE7\u7EED"
+    - optionText: "\u63D0\u8981"
       nextNodeId: 2
   - nodeId: 2
-    terminalText: "\u51C6\u5907\u51FA\u53D1"
-    choices: []
-  - nodeId: 2
-    terminalText: "\u51C6\u5907\u51FA\u53D1"
+    terminalText: "\u201C\u4E09\u9762\u73AF\u6C34\uFF0C\u6C34\u9AD8\u4E8E\u57CE\u3002\u5343\u5E74\u95F4\uFF0C\u6D2A\u707E\u5982\u5F71\u968F\u5F62\u3002\u65E0\u6570\u53E4\u57CE\u88AB\u6CE5\u6C99\u541E\u6CA1\u2026\u2026\u201D\r"
+    choices:
+    - optionText: "\u63D0\u8981"
+      nextNodeId: 3
+  - nodeId: 3
+    terminalText: "\u4F46\u8D63\u5DDE\uFF0C\u6D3B\u4E86\u4E0B\u6765\u3002\u539F\u56E0\uFF0C\u4E0D\u5728\u5929\u4E0A\uFF0C\u4E0D\u5728\u5899\u4E0A\u2026\u2026\u5728\u811A\u4E0B\u3002"
     choices: []
