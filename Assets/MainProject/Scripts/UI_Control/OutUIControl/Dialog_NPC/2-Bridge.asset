@@ -10,6 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53fdc861920ecc142aa95d32f3a802db, type: 3}
-  m_Name: 2
+  m_Name: 2-Bridge
   m_EditorClassIdentifier: 
-  dialogueList: []
+  dialogueList:
+  - nodeId: 1
+    terminalText: "\u516C\u5143"
+    choices:
+    - optionText: "\u7EE7\u7EED"
+      nextNodeId: 2
+  - nodeId: 2
+    terminalText: "\u51C6\u5907\u51FA\u53D1"
+    choices: []
+  - nodeId: 2
+    terminalText: "\u51C6\u5907\u51FA\u53D1"
+    choices: []

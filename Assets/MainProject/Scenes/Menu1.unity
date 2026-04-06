@@ -1365,7 +1365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeSceneButton: {fileID: 1290327260}
   targetScene: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
-  targetSceneName: SampleScene
+  targetSceneName: city
 --- !u!1 &1294076031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,7 +1498,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 82bfb29749ed18345a9710bdb27cfaf3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 50dfc6c934995e44bbc9642b5e74907e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
