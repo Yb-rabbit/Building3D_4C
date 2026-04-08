@@ -10,19 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53fdc861920ecc142aa95d32f3a802db, type: 3}
-  m_Name: 2-Bridge
+  m_Name: 3-FuShou
   m_EditorClassIdentifier: 
   dialogueList:
   - nodeId: 1
-    terminalText: "\u63D0\u8981\n\u201C\u7AE0\u3001\u8D21\u4E8C\u6C5F\u5728\u6B64\u4EA4\u6C47\uFF0C\u6C47\u6210\u8D63\u6C5F\u3002\u201D\n"
+    terminalText: "\u63D0\u8981\n\u9633\u4E3A\u5899\uFF0C\u9634\u4E3A\u6C9F\u3002\u5730\u4E0A\u8FD9\u516B\u767E\u4E08\u9752\u7816\uFF0C\u662F\u4EE5\u201C\u521A\u201D\u5FA1\u5916\u654C\u3002\n"
     choices:
     - optionText: "\u63D0\u8981"
       nextNodeId: 2
   - nodeId: 2
-    terminalText: "\u201C\u4E09\u9762\u73AF\u6C34\uFF0C\u6C34\u9AD8\u4E8E\u57CE\u3002\u5343\u5E74\u95F4\uFF0C\u6D2A\u707E\u5982\u5F71\u968F\u5F62\u3002\u65E0\u6570\u53E4\u57CE\u88AB\u6CE5\u6C99\u541E\u6CA1\u2026\u2026\u201D\r"
+    terminalText: "\u5730\u4E0B\u90A3\u767E\u8F6C\u5343\u56DE\u7684\u6C34\u9053\uFF0C\u662F\u4EE5\u201C\u67D4\u201D\u9000\u5185\u6D9D\u3002\r"
     choices:
     - optionText: "\u63D0\u8981"
       nextNodeId: 3
   - nodeId: 3
+    terminalText: "\u751F\u6D3B\u5728\u8FD9\u91CC\u7684\u4EBA\u8BF4\uFF1A\u4E00\u5835\u5899\uFF0C\u4E00\u6761\u6C9F\u3002\u4E00\u547C\u4E00\u5438\uFF0C\u4E00\u5410\u4E00\u7EB3\u3002"
+    choices:
+    - optionText: "\u63D0\u8981"
+      nextNodeId: 4
+  - nodeId: 4
     terminalText: "\u8FD9\uFF0C\u5C31\u662F\u8D63\u5DDE\u5B58\u6D3B\u5343\u5E74\u7684\u547D\u8109\u3002"
     choices: []

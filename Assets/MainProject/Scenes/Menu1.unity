@@ -1364,8 +1364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeSceneButton: {fileID: 1290327260}
-  targetScene: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
-  targetSceneName: city
+  targetScene: {fileID: 102900000, guid: 294c42d120c95f742807857745dab0f1, type: 3}
+  targetSceneName: Puzzle3Dts
 --- !u!1 &1294076031
 GameObject:
   m_ObjectHideFlags: 0
