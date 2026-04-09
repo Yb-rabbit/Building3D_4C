@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53fdc861920ecc142aa95d32f3a802db, type: 3}
+  m_Name: Mission_FS005
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - nodeId: 1
+    terminalText: "\u5BF9\u8BDD\u8BF7\u6C42\n\u201C\u6709\u4EBA\u5417?\u6211\u6765\u95EE\u8DEF\u2026\u2026\u201D\n"
+    choices:
+    - optionText: "\u73A9\u5BB6\u56DE\u5E94"
+      nextNodeId: 2
+    - optionText: "(\u65E0\u89C6)"
+      nextNodeId: 1
+  - nodeId: 2
+    terminalText: "\u603B\u611F\u89C9\u4F1A\u88AB\u7ED5\u6655\uFF0C\u53EA\u89C1\u5899\u58C1\u4E0A\u7684\u7816\u5757\u90FD\u5F88\u957F\uFF0C\u4E5F\u5F88\u5608\u6742\u3002\r"
+    choices:
+    - optionText: "\u73A9\u5BB6\u56DE\u5E94"
+      nextNodeId: 3
+  - nodeId: 3
+    terminalText: "\u4E00\u5757\u7816\u4E0A\u5199\u7740\uFF0C\u201C\u5B8B\u7199\u5B81\u4E2D\uFF0C\u77E5\u5DDE\u5218\u5F5D\u8C0B\u7F6E\u6C34\u7A97\u3002\u5BFF\u6C9F\u53D7\u57CE\u5317\u4E4B\u6C34\uFF0C\u4E1C\u5357\u4E4B\u6C34\u7531\u798F\u6C9F\u800C\u51FA\u3002\u201D"
+    choices:
+    - optionText: "\u73A9\u5BB6\u56DE\u5E94"
+      nextNodeId: 4
+  - nodeId: 4
+    terminalText: "\u7EE7\u7EED\u770B\u56DB\u5468\uFF0C\u4E0E\u8BB0\u8F7D\u201C\u9614\u4E8C\u3001\u4E09\u5C3A\uFF0C\u6DF1\u4E94\u3001\u516D\u5C3A\uFF0C\u780C\u4EE5\u7816\uFF0C\u8986\u4EE5\u77F3\u201D\u7684\u63CF\u8FF0\u51E0\u4E4E\u6CA1\u6709\u5DEE\u522B\u3002"
+    choices:
+    - optionText: "\u73A9\u5BB6\u56DE\u5E94"
+      nextNodeId: 5
+  - nodeId: 5
+    terminalText: "\u8981\u662F\u80FD\u770B\u5230\u5EA6\u9F99\u6865\u7684\u5916\u8FB9\u5C31\u66F4\u597D\u4E86\u3002"
+    choices:
+    - optionText: "(\u79BB\u5F00)"
+      nextNodeId: 6
+  - nodeId: 6
+    terminalText: "\u4EFB\u52A1:\u7EE7\u7EED\u63A2\u7D22\u5269\u4F59\u90E8\u5206
+      (\u63D0\u793A:\u8DDF\u968F\u84DD\u8272\u5411\u5BFC\uFF0C\u53F3\u4E0A\u89D2\u5730\u56FE\u663E\u793A\u4F4D\u7F6E)"
+    choices: []
