@@ -29,5 +29,6 @@ MonoBehaviour:
     - optionText: "\u63D0\u8981"
       nextNodeId: 4
   - nodeId: 4
-    terminalText: "\u8FD9\uFF0C\u5C31\u662F\u8D63\u5DDE\u5B58\u6D3B\u5343\u5E74\u7684\u547D\u8109\u3002"
+    terminalText: "\u8FD9\uFF0C\u5C31\u662F\u8D63\u5DDE\u5B58\u6D3B\u5343\u5E74\u7684\u547D\u8109\u3002 
+      (\u70B9\u51FB\u7EA2\u8272\u6309\u94AE\u4EE5\u7EE7\u7EED)"
     choices: []

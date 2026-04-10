@@ -1,27 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 public class ChangeScenes : MonoBehaviour
 {
-    public Button changeSceneButton; // °´Å¥ÒıÓÃ
-#if UNITY_EDITOR
-    public SceneAsset targetScene; // Ä¿±ê³¡¾°ÒıÓÃ
-#endif
-    public string targetSceneName; // Ä¿±ê³¡¾°Ãû³Æ
+    public Button changeSceneButton;       // åœºæ™¯åˆ‡æ¢æŒ‰é’®
+    public string targetSceneName;        // ç›®æ ‡åœºæ™¯åç§°ï¼ˆè¿è¡Œæ—¶ä½¿ç”¨ï¼‰
+    public Image fadeImage;              // æ·¡å‡ºé®ç½©ï¼ˆéœ€åœ¨åœºæ™¯ä¸­è®¾ç½®ï¼‰
+    public float fadeDuration = 1f;       // æ·¡å‡ºæŒç»­æ—¶é—´ï¼ˆç§’ï¼‰
 
     void Start()
     {
-#if UNITY_EDITOR
-        if (targetScene != null)
-        {
-            targetSceneName = targetScene.name;
-        }
-#endif
-
+        // ç»‘å®šæŒ‰é’®ç‚¹å‡»äº‹ä»¶
         if (changeSceneButton != null)
         {
             changeSceneButton.onClick.AddListener(LoadNextScene);
@@ -30,25 +20,46 @@ public class ChangeScenes : MonoBehaviour
         {
             Debug.LogError("Change Scene Button is not assigned!");
         }
+
+        // åˆå§‹åŒ–æ·¡å‡ºé®ç½©ï¼ˆåˆå§‹é€æ˜åº¦ä¸º0ï¼‰
+        if (fadeImage != null)
+        {
+            fadeImage.color = new Color(0, 0, 0, 0);
+        }
     }
 
-    // µ÷ÓÃÕâ¸ö·½·¨À´Ìø×ªµ½Ä¿±ê³¡¾°
     public void LoadNextScene()
     {
         if (!string.IsNullOrEmpty(targetSceneName))
         {
             if (Application.CanStreamedLevelBeLoaded(targetSceneName))
             {
-                SceneManager.LoadScene(targetSceneName);
+                StartCoroutine(FadeOutAndLoad());
             }
             else
             {
-                Debug.LogError($"Scene '{targetSceneName}' cannot be loaded. Please check the scene name and ensure it is added to the build settings.");
+                Debug.LogError($"Scene '{targetSceneName}' cannot be loaded. Check build settings!");
             }
         }
         else
         {
             Debug.LogError("Target scene name is null or empty!");
         }
+    }
+
+    private System.Collections.IEnumerator FadeOutAndLoad()
+    {
+        float elapsedTime = 0f;
+        Color startColor = fadeImage.color;
+        Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 1f); // ç›®æ ‡ï¼šå…¨é»‘
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            fadeImage.color = Color.Lerp(startColor, targetColor, elapsedTime / fadeDuration);
+            yield return null;
+        }
+
+        SceneManager.LoadScene(targetSceneName);
     }
 }
