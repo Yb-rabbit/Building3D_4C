@@ -46105,7 +46105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 987440926}
-  detectionDistance: 2
+  detectionDistance: 4
   smoothRotation: 1
   rotationSpeed: 5
   OnPlayerDetected:
@@ -46239,7 +46239,7 @@ Transform:
   m_GameObject: {fileID: 282351560}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.98999, y: -2.6934586, z: -0.6100006}
+  m_LocalPosition: {x: 5.38, y: -2.53, z: -2.24}
   m_LocalScale: {x: 0.59999996, y: 1.77, z: 0.65}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49167,7 +49167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &303020262
 Transform:
   m_ObjectHideFlags: 0
@@ -73113,7 +73113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &472173513
 Transform:
   m_ObjectHideFlags: 0
@@ -94215,7 +94215,7 @@ Transform:
   m_GameObject: {fileID: 614636930}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4, y: -0.6634598, z: 4.42}
+  m_LocalPosition: {x: -1.73, y: -0.6634598, z: 4.86}
   m_LocalScale: {x: 0.9, y: 1.77, z: 0.65}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -119534,10 +119534,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoatPrefabs:
   - {fileID: 4866684567538481114, guid: 28f91336ecb184b4b9a7cde8c7ccbd2e, type: 3}
-  minInterval: 8
-  maxInterval: 12
-  spawnRotationY: -85
-  sceneMaxBoatLimit: 2
+  minInterval: 12
+  maxInterval: 25
+  spawnRotationY: -9.3
+  sceneMaxBoatLimit: 3
 --- !u!4 &762180644
 Transform:
   m_ObjectHideFlags: 0
@@ -119547,7 +119547,7 @@ Transform:
   m_GameObject: {fileID: 762180642}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 59.630005, y: -0.69000053, z: -66.78}
+  m_LocalPosition: {x: 147.4, y: -3.083, z: 36.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -146862,7 +146862,7 @@ Transform:
   m_GameObject: {fileID: 981978852}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11001587, y: -1.8999977, z: -1.1099854}
+  m_LocalPosition: {x: -0.11001587, y: -1.8999977, z: -1.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -173525,6 +173525,18 @@ MonoBehaviour:
   OnPlayerDetected:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 97697197}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1242869520}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -225343,7 +225355,7 @@ GameObject:
   - component: {fileID: 1528241674}
   m_Layer: 0
   m_Name: Cube.001
-  m_TagString: Untagged
+  m_TagString: Boat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238341,18 +238353,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 97697197}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 279612346}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -244302,7 +244302,7 @@ Transform:
   m_GameObject: {fileID: 1619561399}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 375.7, y: 45.86, z: 197.03}
+  m_LocalPosition: {x: 375.7, y: 45.86, z: 193.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -244328,7 +244328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 1447546756}
   pointB: {fileID: 981978853}
-  speed: 2
+  speed: 2.3
 --- !u!114 &1619561402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271368,7 +271368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1801791880
 Transform:
   m_ObjectHideFlags: 0
@@ -288783,7 +288783,7 @@ GameObject:
   - component: {fileID: 1931996247}
   - component: {fileID: 1931996246}
   m_Layer: 0
-  m_Name: SpwannerBoat (1)
+  m_Name: SpwannerBoat2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288803,10 +288803,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoatPrefabs:
   - {fileID: 4866684567538481114, guid: 28f91336ecb184b4b9a7cde8c7ccbd2e, type: 3}
-  minInterval: 8
-  maxInterval: 12
-  spawnRotationY: 91
-  sceneMaxBoatLimit: 2
+  minInterval: 10
+  maxInterval: 18
+  spawnRotationY: 149
+  sceneMaxBoatLimit: 3
 --- !u!4 &1931996247
 Transform:
   m_ObjectHideFlags: 0
@@ -288816,7 +288816,7 @@ Transform:
   m_GameObject: {fileID: 1931996245}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.970001, y: -0.69000053, z: -87.65001}
+  m_LocalPosition: {x: 73.3, y: -3.28, z: 86.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
