@@ -60,7 +60,7 @@ public class ClearingManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = $"已清除填充物: {currentCount} / {targetCount}";
+            scoreText.text = $"当前已清除杂物: {currentCount} / {targetCount}";
         }
     }
 

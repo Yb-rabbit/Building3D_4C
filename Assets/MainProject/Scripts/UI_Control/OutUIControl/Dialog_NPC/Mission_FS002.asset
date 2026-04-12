@@ -18,8 +18,6 @@ MonoBehaviour:
     choices:
     - optionText: "\u73A9\u5BB6\u56DE\u5E94"
       nextNodeId: 2
-    - optionText: "(\u65E0\u89C6)"
-      nextNodeId: 1
   - nodeId: 2
     terminalText: "\u201C\u6CA1\u4E8B\uFF0C\u5C31\u662F\u5F88\u597D\u5947\u73B0\u5728\u6211\u4EEC\u5728\u54EA\u2026\u2026\u8FD9\u91CC\u5C31\u662F\u798F\u5BFF\u6C9F\u5417?!\u201D\r"
     choices:

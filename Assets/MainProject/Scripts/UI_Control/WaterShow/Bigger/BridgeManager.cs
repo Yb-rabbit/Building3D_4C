@@ -33,12 +33,16 @@ public class BridgeManager : MonoBehaviour
             // 触发防倒灌成功逻辑
             SuccessBlocking();
         }
+        if (gateDoor != null)
+        {
+            gateDoor.CloseGate(currentWeights, requiredWeights);
+        }
     }
 
     private void SuccessBlocking() 
     {
         // 1. 关门
-        if (gateDoor != null) gateDoor.CloseGate();
+        if (gateDoor != null) gateDoor.CloseGate(currentWeights, requiredWeights);
         // 2. 延迟切换水流特效和结束流程
         Invoke("PlayBlockEffect", 1.5f); // 延迟1.5秒，等门关得差不多了再切水
     }
