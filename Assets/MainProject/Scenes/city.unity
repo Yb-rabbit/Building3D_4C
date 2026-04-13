@@ -41344,7 +41344,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -41356,7 +41356,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246355194}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -49659,7 +49659,7 @@ MonoBehaviour:
   shadowMode: 1
   renderLayer:
     m_LayerIndex: 0
-  pointCount: 1.6
+  pointCount: 1.05
   multiplyByArea: 1
   pointLODFactor: 1
   randomiseSeed: 1
@@ -49667,7 +49667,7 @@ MonoBehaviour:
   overwriteNormalDirection: 0
   forcedNormal: {x: 0, y: 1, z: 0}
   useDensity: 1
-  densityCutoff: 0.5
+  densityCutoff: 0.65
   useLength: 1
   lengthMapping: {x: 0, y: 1}
   projectType: 0
@@ -160354,7 +160354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1029213862
 Transform:
   m_ObjectHideFlags: 0
@@ -200567,8 +200567,8 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 71c6f8b949a277c4ba34bfd01d691842, type: 2}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 300
+  m_TreeDistance: 486
+  m_TreeBillboardDistance: 150
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 80
