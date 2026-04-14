@@ -1,12 +1,12 @@
 using UnityEngine;
-using StarterAssets; // 记得引用命名空间
+using StarterAssets;
 
 public class InteractionTrigger : MonoBehaviour
 {
     // 拖入玩家身上的输入脚本
     public StarterAssetsInputs inputController; 
     
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) // 玩家标签
         {

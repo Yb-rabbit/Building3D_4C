@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53fdc861920ecc142aa95d32f3a802db, type: 3}
+  m_Name: Mission_CT001
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - nodeId: 1
+    terminalText: "\u573A\u666F\u4ECB\u7ECD\n\u5317\u5B8B\u5609\u4F51\u5E74\uFF0C\u5B54\u5B97\u7FF0\u6539\u571F\u57CE\u4E3A\u7816\u77F3\u57CE\u5899\uFF0C\u53E4\u57CE\u5899\u8F6E\u5ED3\u5F62\u6210\u3002\u56FA\u5792\u627F\u7AE0\u8D21\uFF0C\u798F\u6C9F\u901A\u6E20\u4F51\u8654\u57CE\u3002\n"
+    choices:
+    - optionText: "\u573A\u666F\u4ECB\u7ECD"
+      nextNodeId: 2
+  - nodeId: 2
+    terminalText: "\u56FE\u96C6\u91CC\uFF0C\u8FD9\u91CC\u662F\u4E00\u5EA7\u6A2A\u8DE8\u6C5F\u9762\u7684\u5B8F\u4F1F\u6728\u6865\uFF1B\u800C\u773C\u4E0B\uFF0C\u8FD9\u91CC\u53EA\u6709\u6DF1\u6D45\u4E0D\u4E00\u7684\u6C5F\u6C34\uFF0C\u548C\u4E00\u7FA4\u6B63\u5728\u6CE5\u6CDE\u4E2D\u6253\u5730\u57FA\u7684\u5DE5\u5320\u3002"
+    choices:
+    - optionText: "\u573A\u666F\u4ECB\u7ECD"
+      nextNodeId: 3
+  - nodeId: 3
+    terminalText: "\u542C\u95FB\u57CE\u91CC\u4EBA\u8BAE\u8BBA\uFF0C\u8FD9\u5EA7\u6865\u540D\u4E3A\u201C\u60E0\u6C11\u6865\u201D\u3002\u4E3A\u4E86\u8FDE\u901A\u4E24\u5CB8\uFF0C\u8BA9\u6446\u6E21\u7684\u82E6\u529B\u4E0D\u518D\u53D7\u98CE\u6D6A\u4E4B\u82E6\uFF0C\u5B98\u5E9C\u6B63\u62DB\u52DF\u4EBA\u624B\u642D\u6865\u3002"
+    choices:
+    - optionText: "\u76EE\u6807"
+      nextNodeId: 4
+  - nodeId: 4
+    terminalText: "\u8239\u5DF2\u7ECF\u9760\u5CB8\uFF0C\u8BF7\u52A8\u8EAB\u5F80\u57CE\u5185\u5427\u3002"
+    choices: []

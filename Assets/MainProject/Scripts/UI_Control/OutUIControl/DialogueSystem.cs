@@ -30,8 +30,8 @@ public class DialogueSystem : MonoBehaviour
     // --- 内部变量 ---
     private List<string> dialogueHistory = new List<string>(); // 修复：声明dialogueHistory
     private const int MaxHistoryCount = 2;
-    private int currentMaxNodeId = 0; // 修复：声明currentMaxNodeId
-    private int currentActiveNodeId = 1; // 修复：声明currentActiveNodeId
+    private int currentMaxNodeId = 0;
+    private int currentActiveNodeId = 1;
     private Coroutine typingCoroutine;
     private bool isTyping = false;
     private bool skipTyping = false; // 点击加速标记
@@ -63,7 +63,7 @@ public class DialogueSystem : MonoBehaviour
 
     void CalculateMaxNodeId()
     {
-        currentMaxNodeId = 1; // 使用已声明的变量
+        currentMaxNodeId = 1;
         if (currentData != null && currentData.dialogueList != null)
         {
             foreach (var node in currentData.dialogueList)
@@ -89,7 +89,7 @@ public class DialogueSystem : MonoBehaviour
         DialogueNode node = currentData.GetNodeById(nodeId);
         if (node == null) return;
 
-        currentActiveNodeId = nodeId; // 使用已声明的变量
+        currentActiveNodeId = nodeId;
         UpdateProgressBar(nodeId);
 
         bool isEnd = (node.choices == null || node.choices.Count == 0);
@@ -124,7 +124,7 @@ public class DialogueSystem : MonoBehaviour
         CreateChoices(node.choices);
     }
 
-    // 【核心修改1】纯文本打字机（不带标签）
+    // 纯文本打字机
     IEnumerator AppendText(string pureText)
     {
         isTyping = true;
@@ -147,7 +147,6 @@ public class DialogueSystem : MonoBehaviour
         isTyping = false;
     }
 
-    // 【核心修改2】打字机结束后，添加颜色标签
     IEnumerator AddColorTagsAfterTyping(string pureText)
     {
         // 等待打字机结束
@@ -189,7 +188,7 @@ public class DialogueSystem : MonoBehaviour
 
     void UpdateProgressBar(int currentNodeId)
     {
-        if (progressBar != null && currentMaxNodeId > 0) // 使用已声明的变量
+        if (progressBar != null && currentMaxNodeId > 0)
         {
             float progress = (float)currentNodeId / (float)currentMaxNodeId;
             progress = Mathf.Clamp01(progress);
@@ -238,7 +237,7 @@ public class DialogueSystem : MonoBehaviour
         isTyping = false;
 
         terminalText.text = "";
-        dialogueHistory.Clear(); // 使用已声明的变量
+        dialogueHistory.Clear();
 
         if (scrollRect != null)
         {
@@ -246,6 +245,6 @@ public class DialogueSystem : MonoBehaviour
             contentRect.sizeDelta = new Vector2(contentRect.sizeDelta.x, 0);
         }
 
-        StartDialogue(currentActiveNodeId, ""); // 使用已声明的变量
+        StartDialogue(currentActiveNodeId, "");
     }
 }
