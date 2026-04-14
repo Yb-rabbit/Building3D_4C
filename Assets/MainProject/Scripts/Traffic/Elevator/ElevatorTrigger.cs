@@ -11,6 +11,8 @@ public class ElevatorTrigger : MonoBehaviour
         {
             // 将玩家设为电梯的子物体，玩家会跟随电梯移动
             other.transform.SetParent(transform);
+            // 更新玩家位置，使其与电梯保持相对位置不变
+            other.transform.localPosition = Vector3.zero;
             // 激活场景对象
             if (StarterObj != null)
             {
