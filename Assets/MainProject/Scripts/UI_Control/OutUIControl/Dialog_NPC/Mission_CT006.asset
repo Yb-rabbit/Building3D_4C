@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53fdc861920ecc142aa95d32f3a802db, type: 3}
+  m_Name: Mission_CT006
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - nodeId: 1
+    terminalText: "\u4EFB\u52A1\u5C0F\u7ED3\n\u798F\u5BFF\u6C9F\u4F9D\u7740\u201C\u4E2D\u95F4\u9AD8\u3001\u56DB\u5468\u4F4E\u201D\u7684\u9F9F\u80CC\u5730\u5F62\uFF0C\u51FF\u51FA\u4E86\u7E82\u4F53\u201C\u798F\u201D\u5B57\u4E0E\u201C\u5BFF\u201D\u5B57\u4E24\u6761\u4E3B\u5E72\u9053\u3002"
+    choices:
+    - optionText: "\u7EE7\u7EED\u5BF9\u8BDD"
+      nextNodeId: 2
+  - nodeId: 2
+    terminalText: "\u5F53\u6C5F\u6C34\u6C34\u4F4D\u9AD8\u65F6\uFF0C\u6C34\u538B\u4F1A\u5C06\u6C89\u91CD\u7684\u6728\u5236\u6C34\u7A97\u7D27\u7D27\u62B5\u6B7B\uFF0C\u6C5F\u6C34\u4F11\u60F3\u8FDB\u57CE\u5206\u6BEB\u3002"
+    choices:
+    - optionText: "\u7EE7\u7EED\u5BF9\u8BDD"
+      nextNodeId: 3
+  - nodeId: 3
+    terminalText: "\u800C\u5F53\u6C5F\u6C34\u9000\u53BB\uFF0C\u6C34\u4F4D\u4F4E\u4E8E\u6C9F\u6E20\u65F6\uFF0C\u57CE\u5185\u84C4\u79EF\u7684\u6C60\u5858\u6C34\u4FBF\u4F1A\u51B2\u5F00\u6C34\u7A97\uFF0C\u547C\u5578\u7740\u6392\u5165\u6C5F\u4E2D\u3002"
+    choices:
+    - optionText: "\u7EE7\u7EED\u5BF9\u8BDD"
+      nextNodeId: 4
+  - nodeId: 4
+    terminalText: "\u800C\u90A3\u4E9B\u88AB\u6392\u51FA\u7684\u6C34\uFF0C\u6700\u7EC8\u4F1A\u6D41\u7ECF\u54EA\u91CC\uFF1F"
+    choices:
+    - optionText: "\u7EE7\u7EED\u5BF9\u8BDD"
+      nextNodeId: 5
+  - nodeId: 5
+    terminalText: "\u201C\u62A5\uFF01\u89C1\u8D21\u6C34\u52BF\u5DF2\u5E73\u7A33\uFF0C\u6728\u821F\u5DF2\u8FDE\u6BD5\uFF0C\u8BF7\u5927\u4EBA\u5373\u523B\u4E0B\u4EE4\uFF01\u201D"
+    choices:
+    - optionText: "\u7EE7\u7EED\u5BF9\u8BDD"
+      nextNodeId: 6
+  - nodeId: 6
+    terminalText: "\u62AC\u773C\u671B\u53BB\uFF0C\u4E00\u767E\u591A\u53EA\u5C0F\u821F\u7528\u7EF3\u7D22\u76F8\u8FDE\uFF0C\u968F\u6CE2\u8D77\u4F0F\u3002\u6C5F\u9762\u4E0A\u6A2A\u4E98\u7740\u534A\u622A\u6D6E\u6865\u3002"
+    choices:
+    - optionText: "\u7EE7\u7EED\u5BF9\u8BDD"
+      nextNodeId: 7
+  - nodeId: 7
+    terminalText: "\u662F\u65F6\u5019\u8BA9\u8FD9\u6761\u201C\u60E0\u6C11\u6865\u201D\u987A\u5229\u5B8C\u5DE5\u4E86\u3002"
+    choices: []
