@@ -6,7 +6,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 {
     private RectTransform rectTransform;
     private Canvas parentCanvas;
-    private Vector2 originalPosition;    // 记录一开始出生的坐标
+    private Vector2 originalPosition;    // 初始坐标
 
     [Tooltip("目标放置区域")]
     public RectTransform targetArea;
@@ -36,10 +36,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         // 判断松手时，鼠标是否在目标区域内
         if (RectTransformUtility.RectangleContainsScreenPoint(targetArea, Input.mousePosition))
         {
-            // 【情况1：成功】
-            // 什么都不用做！因为 OnDrag 已经把物体带到了终点，我们只要不改变它，它就停在终点。
-
-            // 锁定该物体，不能再拖拽
+            // 成功放置，禁用拖拽功能
             this.enabled = false;
 
             // 通知管理器
@@ -47,8 +44,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         }
         else
         {
-            // 【情况2：失败】
-            // 直接把坐标重置为初始记录的坐标，物体就回去了
+            // 失败直接把坐标重置为初始记录的坐标
             rectTransform.anchoredPosition = originalPosition;
         }
     }
