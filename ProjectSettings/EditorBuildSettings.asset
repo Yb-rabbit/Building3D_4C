@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/MainProject/Scenes/F_way.unity
     guid: 12159dcd9cf6bcf4582304452b837143
-  - enabled: 1
+  - enabled: 0
     path: Assets/MainProject/Scenes/Levels/FuShouSystem.unity
     guid: a51397a4f0ddc964093c6cdbdb2fb7eb
   m_configObjects: {}

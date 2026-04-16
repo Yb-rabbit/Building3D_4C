@@ -40,7 +40,7 @@ public class ElevatorController : MonoBehaviour
     {
         if (isMoving) return; // 如果正在动，就忽略点击
 
-        // 简单的逻辑：如果现在离A近，就去B；如果离B近，就去A。
+        // 简单的逻辑：如果现在离A近，就去B；如果离B近，就去A
         // 这样无论初始状态如何，电梯都会去正确的一端
         float distToA = Vector3.Distance(transform.position, pointA.position);
         
