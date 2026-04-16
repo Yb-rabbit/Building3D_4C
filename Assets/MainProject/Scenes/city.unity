@@ -43621,7 +43621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &246355195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52308,7 +52308,7 @@ MonoBehaviour:
   shadowMode: 1
   renderLayer:
     m_LayerIndex: 0
-  pointCount: 1.05
+  pointCount: 3
   multiplyByArea: 1
   pointLODFactor: 1
   randomiseSeed: 1
