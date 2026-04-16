@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class DragItem3D : MonoBehaviour
+public class DragItem3D : MonoBehaviour 
 {
     [Tooltip("目标放置位置的Transform")]
     public Transform targetArea;
@@ -12,29 +12,30 @@ public class DragItem3D : MonoBehaviour
     [Tooltip("回弹到原位所需的时间(秒)")]
     public float resetDuration = 0.3f;
 
-    private Vector3 originalPosition; // 初始3D坐标
-    private Quaternion originalRotation; // 初始旋转（防止被意外修改）
+    [Tooltip("此物品所属的小游戏管理器")]
+    public MiniGameManager myManager;
+
+    private Vector3 originalPosition; 
     private Camera mainCam;
     private bool isPlaced = false;    
-    private bool isResetting = false; // 是否正在平滑回弹中
-    
-    private Plane dragPlane;
+    private bool isResetting = false; 
 
     void Start()
     {
         mainCam = Camera.main;
         originalPosition = transform.position;
-        originalRotation = transform.rotation;
-        
-        // 以物体自身的"上方"为法线构建拖拽平面
-        dragPlane = new Plane(transform.up, originalPosition);
+
+        if (myManager == null)
+        {
+            myManager = GetComponentInParent<MiniGameManager>();
+        }
     }
 
     void OnMouseDown()
     {
         if (isPlaced) return;
 
-        // 如果物体正在平滑回弹，点击它时打断回弹，直接接着拖
+        // 如果正在平滑回弹，点击它时打断回弹，直接接着拖
         if (isResetting)
         {
             StopCoroutine("SmoothResetRoutine");
@@ -48,19 +49,17 @@ public class DragItem3D : MonoBehaviour
 
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
         
-        if (dragPlane.Raycast(ray, out float distance))
+        // 平面
+        Plane horizontalPlane = new Plane(Vector3.up, originalPosition);
+
+        if (horizontalPlane.Raycast(ray, out float distance))
         {
-            // 获取射线与斜面相交的世界坐标点
+            // 获取射线与水平面相交的点
             Vector3 hitPoint = ray.GetPoint(distance);
             
-            // 计算从初始位置到命中点的向量
-            Vector3 offset = hitPoint - originalPosition;
-            
-            // 【关键修复3】：将移动向量投影到物体的平面上，剔除掉穿透平面的错误位移
-            offset = Vector3.ProjectOnPlane(offset, transform.up);
-            
-            // 更新位置（只改变X和Z在物体自身平面上的投影，不会乱跑）
-            transform.position = originalPosition + offset;
+            // 保持在 X-Z 平面滑动
+            hitPoint.y = originalPosition.y;
+            transform.position = hitPoint;
         }
     }
 
@@ -87,14 +86,20 @@ public class DragItem3D : MonoBehaviour
         transform.position = targetArea.position;
         transform.rotation = targetArea.rotation;
 
-        // 禁用碰撞器，防止干扰后续其他物体的拖拽
+        // 禁用碰撞器
         GetComponent<Collider>().enabled = false;
 
-        // 通知管理器
-        MiniGameManager.Instance.OnItemPlaced();
+        if (myManager != null)
+        {
+            myManager.OnItemPlaced();
+        }
+        else
+        {
+            Debug.LogError($"3D物体 {gameObject.name} 未找到对应的 MiniGameManager！", this);
+        }
     }
 
-    // 平滑回弹逻辑
+    // 平滑回弹逻辑 (完全保留原有平滑功能)
     private void StartSmoothReset()
     {
         isResetting = true;
@@ -109,36 +114,33 @@ public class DragItem3D : MonoBehaviour
         while (elapsed < resetDuration)
         {
             elapsed += Time.deltaTime;
-            // 计算当前进度 (0 到 1)
             float progress = Mathf.Clamp01(elapsed / resetDuration);
             
-            // 使用 SmoothStep 让回弹有减速缓冲的效果，更自然
+            // 先快后慢的平滑曲线
             float smoothProgress = Mathf.SmoothStep(0f, 1f, progress);
             
-            // 位置插值
-            transform.position = Vector3.Lerp(startPos, originalPosition, smoothProgress);
+            // 插值位置
+            Vector3 currentPos = Vector3.Lerp(startPos, originalPosition, smoothProgress);
             
-            // 如果需要旋转也平滑恢复，可以取消下面这行的注释
-            // transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, smoothProgress);
+            // 回弹过程中也强制锁定 Y 轴，防止万一出现的浮空/下沉
+            currentPos.y = originalPosition.y;
+            transform.position = currentPos;
 
-            yield return null; // 等待下一帧
+            yield return null; 
         }
 
         // 确保最终精准归位
         transform.position = originalPosition;
-        // transform.rotation = originalRotation;
-        
         isResetting = false;
     }
 
     // 提供给外部（如重置小游戏时）调用的方法
     public void ResetForNewGame()
     {
-        StopAllCoroutines(); // 停止可能正在进行的回弹
+        StopAllCoroutines();
         isPlaced = false;
         isResetting = false;
         transform.position = originalPosition;
-        transform.rotation = originalRotation;
         GetComponent<Collider>().enabled = true;
     }
 }
